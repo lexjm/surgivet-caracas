@@ -71,6 +71,10 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -78,7 +82,27 @@ body {
   background-color: var(--color-slate-50);
   color: var(--color-slate-700);
   line-height: 1.6;
-  overflow-x: hidden;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  position: relative !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+main,
+header,
+footer,
+aside,
+section,
+.container {
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+section {
+  overflow-x: clip;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -2271,80 +2295,267 @@ input, select, textarea {
   }
 }
 
+/* ==========================================================================
+   ADAPTACIÓN TOTAL Y RÍGIDA A SMARTPHONES (IPHONE & ANDROID) - SIN DESBORDAMIENTO
+   ========================================================================== */
 @media (max-width: 900px) {
   .main-navigation {
     display: none !important;
   }
   
   .mobile-nav-toggle {
-    display: flex;
+    display: flex !important;
   }
 
   .header-actions .btn-primary {
-    display: none;
+    display: none !important;
   }
 }
 
 @media (max-width: 768px) {
-  .site-header {
-    padding-top: max(0.4rem, env(safe-area-inset-top));
-  }
-
-  .header-content {
-    padding: 0.55rem 1rem;
-  }
-
-  .brand-logo {
-    gap: 0.6rem;
-  }
-
-  .logo-symbol {
-    width: 38px;
-    height: 38px;
-    min-width: 38px;
-  }
-
-  .brand-title {
-    font-size: 1.15rem;
-  }
-
-  .brand-subtitle {
-    font-size: 0.68rem;
+  /* 1. Barra de Emergencias Superior */
+  .emergency-topbar {
+    padding: 0.4rem 0.5rem;
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
   }
 
   .emergency-topbar-content {
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 0.25rem;
     text-align: center;
-    padding: 0.4rem 1rem;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .emergency-tag {
+    font-size: 0.68rem;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    letter-spacing: 0.01em;
+    white-space: normal;
   }
 
   .emergency-links {
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 0.75rem;
+    align-items: center;
+    gap: 0.4rem 0.75rem;
+    width: 100%;
   }
 
-  .hero-title {
-    font-size: 2.15rem;
-    line-height: 1.15;
+  .emergency-location {
+    font-size: 0.72rem;
+  }
+
+  .emergency-tel {
+    font-size: 0.72rem;
+    padding: 0.2rem 0.55rem;
+    white-space: nowrap;
+  }
+
+  /* 2. Header / Barra de Navegación */
+  .site-header {
+    padding-top: max(0.25rem, env(safe-area-inset-top));
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+  }
+
+  .site-header .container {
+    padding: 0 0.85rem;
+    max-width: 100%;
+  }
+
+  .header-content {
+    min-height: 60px;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 100%;
+    justify-content: space-between;
+  }
+
+  .brand-logo {
+    gap: 0.55rem;
+    max-width: calc(100% - 55px);
+    overflow: hidden;
+  }
+
+  .logo-symbol {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 9px;
+  }
+
+  .brand-title {
+    font-size: 1.08rem;
+    letter-spacing: -0.01em;
+  }
+
+  .brand-badge {
+    display: none !important;
+  }
+
+  .brand-subtitle {
+    font-size: 0.64rem;
+    letter-spacing: 0.02em;
+  }
+
+  /* En móvil, las acciones del header contienen EXCLUSIVAMENTE el botón menú */
+  .header-actions {
+    gap: 0;
+    flex-shrink: 0;
+  }
+
+  .header-actions .btn-primary,
+  .header-actions .btn-emergency {
+    display: none !important;
+  }
+
+  .mobile-nav-toggle {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    border-radius: 10px;
+    margin-left: auto;
+  }
+
+  /* 3. Hero Section */
+  .hero-section {
+    padding: 2rem 0 3rem;
+    overflow: hidden;
+    width: 100%;
   }
 
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.75rem;
+  }
+
+  .hero-badge {
+    font-size: 0.78rem;
+    padding: 0.4rem 0.75rem;
+    margin-bottom: 1rem;
+    white-space: normal;
+    text-align: left;
+  }
+
+  .hero-title {
+    font-size: 1.95rem;
+    line-height: 1.18;
+    word-break: break-word;
+    margin-bottom: 1rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin-bottom: 1.5rem;
   }
 
   .hero-actions {
+    display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    width: 100%;
+    margin-bottom: 1.75rem;
   }
 
   .hero-actions .btn-primary,
   .hero-actions .btn-emergency {
     width: 100%;
+    max-width: 100%;
+    min-height: 48px;
     justify-content: center;
+    text-align: center;
+    padding: 0.85rem 1rem;
+    font-size: 0.92rem;
+    white-space: normal;
   }
 
+  /* 4. Tarjetas Flotantes en Hero (Ajustadas para NO desbordar la pantalla) */
+  .hero-visual-card {
+    overflow: hidden;
+    position: relative;
+    border-radius: var(--radius-xl);
+    width: 100%;
+  }
+
+  .hero-floating-card {
+    padding: 0.5rem 0.75rem;
+    gap: 0.5rem;
+    max-width: calc(100% - 24px);
+    box-shadow: 0 4px 14px rgba(10, 17, 40, 0.12);
+  }
+
+  .floating-cesarean {
+    top: 10px;
+    right: 10px;
+    left: auto;
+  }
+
+  .floating-vitals {
+    bottom: 10px;
+    left: 10px;
+    right: auto;
+  }
+
+  .floating-icon-box {
+    width: 32px;
+    height: 32px;
+  }
+
+  .floating-label {
+    font-size: 0.65rem;
+  }
+
+  .floating-value {
+    font-size: 0.78rem;
+  }
+
+  /* 5. Doctor Adolfo Hernández */
+  .doctor-profile-card {
+    padding: 1.5rem 1.15rem;
+    border-radius: 20px;
+  }
+
+  .doctor-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .doctor-visual {
+    overflow: hidden;
+    position: relative;
+    border-radius: 16px;
+    max-height: 380px;
+  }
+
+  .doctor-exp-badge {
+    bottom: 10px;
+    right: 10px;
+    left: auto;
+    padding: 0.5rem 0.85rem;
+  }
+
+  .doctor-exp-badge .badge-icon {
+    font-size: 1.25rem;
+  }
+
+  .doctor-exp-badge .badge-num {
+    font-size: 1.1rem;
+  }
+
+  .doctor-exp-badge .badge-text {
+    font-size: 0.68rem;
+  }
+
+  /* 6. Grillas de Especialidades, Quirófano y Testimonios */
   .specialties-grid {
     grid-template-columns: 1fr;
   }
@@ -2378,38 +2589,48 @@ input, select, textarea {
     grid-template-columns: 1fr;
   }
 
+  /* 7. Animaciones de scroll: eliminar traslaciones laterales en móvil para no generar ancho fantasma */
+  .anim-reveal.anim-left,
+  .anim-reveal.anim-right {
+    transform: translateY(20px) !important;
+  }
+
+  /* 8. Botones Flotantes (FAB): Dejar únicamente el WhatsApp discreto y compacto */
   .floating-actions-container {
-    bottom: max(1.25rem, calc(env(safe-area-inset-bottom) + 0.75rem));
+    bottom: max(1rem, env(safe-area-inset-bottom));
     right: max(1rem, env(safe-area-inset-right));
+    gap: 0.5rem;
+    z-index: 85;
+  }
+
+  .floating-actions-container .fab-emergency {
+    display: none !important;
+  }
+
+  .floating-actions-container .fab-whatsapp {
+    width: 48px;
+    height: 48px;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.45);
+  }
+
+  .floating-actions-container .fab-whatsapp svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .floating-actions-container .fab-tooltip {
+    display: none !important;
   }
 }
 
-/* Optimización específica para pantallas de iPhone (SE, 12 mini, 13 mini, 14, 15, 16) */
+/* Pantallas pequeñas de iPhone (iPhone SE, Mini, 375px) */
 @media (max-width: 480px) {
   .brand-title {
     font-size: 1.02rem;
   }
 
-  .brand-badge {
-    display: none;
-  }
-
   .brand-subtitle {
-    font-size: 0.64rem;
-  }
-
-  .header-actions {
-    gap: 0.45rem;
-  }
-
-  .header-actions .btn-emergency {
-    padding: 0.5rem 0.65rem;
-    font-size: 0.75rem;
-    border-radius: 10px;
-  }
-
-  .header-actions .btn-emergency span:not(.emergency-live-pulse) {
-    font-size: 0.75rem;
+    font-size: 0.62rem;
   }
 
   .mobile-nav-toggle {
@@ -2418,21 +2639,17 @@ input, select, textarea {
     min-width: 40px;
   }
 
-  .hero-section {
-    padding: 2.5rem 0 2rem;
-  }
-
   .hero-title {
-    font-size: 1.85rem;
+    font-size: 1.78rem;
   }
 
   .cost-calc-container {
-    padding: 1.25rem;
+    padding: 1.15rem;
     border-radius: 18px;
   }
 
   .calculator-card {
-    padding: 1.25rem;
+    padding: 1.15rem;
   }
 
   .weight-chips {
@@ -2454,6 +2671,10 @@ input, select, textarea {
     border-radius: 20px;
     margin: 1rem;
   }
+
+  .mobile-drawer-panel {
+    width: 88vw;
+  }
 }
 
 @media (max-width: 375px) {
@@ -2466,13 +2687,9 @@ input, select, textarea {
   .brand-title {
     font-size: 0.94rem;
   }
-
-  .header-actions .btn-emergency {
-    padding: 0.45rem 0.55rem;
-  }
   
   .mobile-drawer-panel {
-    width: 92vw;
+    width: 90vw;
   }
 }
 
