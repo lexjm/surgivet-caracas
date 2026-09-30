@@ -197,24 +197,31 @@ button {
 }
 
 /* ==========================================================================
-   HEADER / NAVBAR
+   HEADER / NAVBAR ULTRA ESTÉTICO & RESPONSIVE
    ========================================================================== */
 .site-header {
   position: sticky;
   top: 0;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--color-slate-200);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+  box-shadow: 0 4px 20px -4px rgba(10, 17, 40, 0.05);
   z-index: 90;
   transition: all var(--transition-base);
+}
+
+.site-header .container {
+  max-width: 1360px;
+  padding: 0 1.5rem;
 }
 
 .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  min-height: 76px;
+  gap: 1.25rem;
 }
 
 .brand-logo {
@@ -222,18 +229,24 @@ button {
   align-items: center;
   gap: 0.75rem;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .logo-symbol {
-  width: 46px;
-  height: 46px;
+  width: 44px;
+  height: 44px;
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-cyan) 100%);
-  border-radius: var(--radius-md);
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--color-white);
-  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.35);
+  transition: transform var(--transition-fast);
+}
+
+.brand-logo:hover .logo-symbol {
+  transform: scale(1.05) rotate(3deg);
 }
 
 .logo-text {
@@ -242,13 +255,14 @@ button {
 }
 
 .brand-title {
-  font-size: 1.45rem;
+  font-size: 1.35rem;
   font-weight: 800;
   color: var(--color-navy);
   letter-spacing: -0.02em;
   display: flex;
   align-items: center;
   gap: 0.25rem;
+  white-space: nowrap;
 }
 
 .brand-title span {
@@ -256,122 +270,271 @@ button {
 }
 
 .brand-badge {
-  font-size: 0.65rem;
-  font-weight: 700;
+  font-size: 0.62rem;
+  font-weight: 800;
   text-transform: uppercase;
-  background: var(--color-slate-100);
-  color: var(--color-slate-600);
-  padding: 0.15rem 0.45rem;
+  background: rgba(13, 148, 136, 0.12);
+  color: var(--color-primary-dark);
+  padding: 0.18rem 0.5rem;
   border-radius: var(--radius-sm);
   margin-left: 0.35rem;
+  letter-spacing: 0.05em;
 }
 
 .brand-subtitle {
-  font-size: 0.72rem;
-  font-weight: 600;
+  font-size: 0.68rem;
+  font-weight: 700;
   color: var(--color-slate-500);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .main-navigation {
   display: flex;
   align-items: center;
-  gap: 1.75rem;
+  gap: clamp(0.4rem, 1vw, 1.15rem);
 }
 
 .nav-link {
   color: var(--color-slate-700);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   position: relative;
-  padding: 0.35rem 0;
+  padding: 0.45rem 0.7rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  display: inline-block;
 }
 
 .nav-link:hover {
   color: var(--color-primary);
+  background: var(--color-primary-soft);
 }
 
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 0;
   height: 2px;
+  border-radius: 2px;
   background-color: var(--color-primary);
   transition: width var(--transition-fast);
 }
 
 .nav-link:hover::after {
-  width: 100%;
+  width: 60%;
 }
 
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.75rem;
+  flex-shrink: 0;
 }
 
-.btn-primary {
+/* ==========================================================================
+   SISTEMA DE BOTONES PREMIUM, MODERNOS Y ESTÉTICOS
+   ========================================================================== */
+.btn-primary,
+.btn-emergency,
+.btn-secondary,
+.btn-whatsapp-quote {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-cyan-dark) 100%);
-  color: var(--color-white);
+  justify-content: center;
+  gap: 0.55rem;
+  font-family: var(--font-body);
   font-weight: 700;
-  font-size: 0.92rem;
-  padding: 0.65rem 1.35rem;
-  border-radius: var(--radius-full);
-  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.3);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  font-size: 0.88rem;
+  line-height: 1.1;
+  white-space: nowrap;
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 0.7rem 1.35rem;
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.22s ease,
+              border-color 0.22s ease;
+  will-change: transform, box-shadow;
+  box-sizing: border-box;
+}
+
+/* Efecto Shimmer de Luz al Pasar el Cursor */
+.btn-primary::after,
+.btn-emergency::after,
+.btn-whatsapp-quote::after,
+.btn-secondary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  transition: left 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary:hover::after,
+.btn-emergency:hover::after,
+.btn-whatsapp-quote:hover::after,
+.btn-secondary:hover::after {
+  left: 140%;
+}
+
+/* Botón Primario: Gradiente Teal Quirúrgico con Borde Cristalino */
+.btn-primary {
+  background: linear-gradient(135deg, #0d9488 0%, #0891b2 55%, #06b6d4 100%);
+  color: var(--color-white);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.38),
+    0 2px 4px rgba(10, 17, 40, 0.08),
+    0 6px 18px rgba(13, 148, 136, 0.3);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(13, 148, 136, 0.45);
   color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    0 4px 8px rgba(10, 17, 40, 0.12),
+    0 12px 26px rgba(13, 148, 136, 0.44);
 }
 
+.btn-primary:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.15),
+    0 2px 6px rgba(13, 148, 136, 0.25);
+}
+
+/* Botón Urgencia 24h: Rojo Radiante con Aura y Pulso */
 .btn-emergency {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: linear-gradient(135deg, var(--color-emergency) 0%, var(--color-emergency-dark) 100%);
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #b91c1c 100%);
   color: var(--color-white);
-  font-weight: 700;
-  font-size: 0.92rem;
-  padding: 0.65rem 1.25rem;
-  border-radius: var(--radius-full);
-  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.3);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    0 2px 4px rgba(220, 38, 38, 0.15),
+    0 6px 20px rgba(239, 68, 68, 0.36);
+  animation: emergency-glow 2.8s infinite ease-in-out;
+}
+
+@keyframes emergency-glow {
+  0%, 100% {
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.45),
+      0 2px 4px rgba(220, 38, 38, 0.15),
+      0 6px 18px rgba(239, 68, 68, 0.36);
+  }
+  50% {
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      0 4px 8px rgba(220, 38, 38, 0.2),
+      0 10px 28px rgba(239, 68, 68, 0.55);
+  }
 }
 
 .btn-emergency:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.45);
   color: var(--color-white);
+  transform: translateY(-2px);
+  animation: none;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    0 4px 10px rgba(220, 38, 38, 0.25),
+    0 14px 32px rgba(239, 68, 68, 0.58);
 }
 
+.btn-emergency:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Indicador Pulsante Live Dentro del Botón */
+.emergency-live-pulse {
+  width: 8px;
+  height: 8px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.9);
+  animation: pulse-beacon-white 1.6s infinite;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+@keyframes pulse-beacon-white {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.9);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+/* Botón Secundario Vidrio Pulido */
 .btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--color-white);
+  background: rgba(255, 255, 255, 0.92);
   color: var(--color-navy);
-  border: 1.5px solid var(--color-slate-200);
-  font-weight: 700;
-  font-size: 0.92rem;
-  padding: 0.65rem 1.35rem;
-  border-radius: var(--radius-full);
-  transition: all var(--transition-fast);
+  border: 1.5px solid rgba(15, 23, 42, 0.12);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 2px 6px rgba(10, 17, 40, 0.04);
 }
 
 .btn-secondary:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
   background: var(--color-primary-soft);
+  border-color: var(--color-primary);
+  color: var(--color-primary-dark);
   transform: translateY(-2px);
+  box-shadow: 
+    0 6px 20px rgba(13, 148, 136, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.btn-secondary:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Botón Cotización WhatsApp */
+.btn-whatsapp-quote {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: var(--color-white);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 6px 20px rgba(34, 197, 94, 0.35);
+  font-size: 0.95rem;
+  padding: 0.95rem 1.5rem;
+}
+
+.btn-whatsapp-quote:hover {
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    0 10px 28px rgba(34, 197, 94, 0.45);
+}
+
+.btn-whatsapp-quote:active {
+  transform: translateY(1px) scale(0.98);
 }
 
 /* Menú Móvil */
@@ -1862,5 +2025,223 @@ button {
   
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+
+/* ==========================================================================
+   ANIMACIONES DINÁMICAS EN CADA SECCIÓN (SCROLL REVEAL & MICRO-INTERACCIONES)
+   ========================================================================== */
+
+/* 1. Scroll Reveal General */
+.anim-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.anim-reveal.anim-scale {
+  transform: scale(0.94) translateY(20px);
+}
+
+.anim-reveal.anim-left {
+  transform: translateX(-30px);
+}
+
+.anim-reveal.anim-right {
+  transform: translateX(30px);
+}
+
+.anim-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0) translateX(0) scale(1);
+}
+
+/* Retardos Escalonados */
+.anim-delay-1 { transition-delay: 0.08s; }
+.anim-delay-2 { transition-delay: 0.16s; }
+.anim-delay-3 { transition-delay: 0.24s; }
+.anim-delay-4 { transition-delay: 0.32s; }
+.anim-delay-5 { transition-delay: 0.40s; }
+.anim-delay-6 { transition-delay: 0.48s; }
+
+/* 2. Hero Section: Resplandor fluido en el texto principal */
+.hero-title .highlight-teal {
+  background: linear-gradient(
+    120deg,
+    #0d9488 0%,
+    #06b6d4 25%,
+    #14b8a6 50%,
+    #06b6d4 75%,
+    #0d9488 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textSheen 6s linear infinite;
+}
+
+@keyframes textSheen {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* 3. Hero Visual: Resplandor ambiental de fondo */
+.hero-visual-card::before {
+  content: '';
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.22) 0%, transparent 70%);
+  filter: blur(35px);
+  z-index: 0;
+  pointer-events: none;
+  animation: heroPulse 5s ease-in-out infinite alternate;
+}
+
+@keyframes heroPulse {
+  0% { transform: scale(0.92) translate(-5px, -5px); opacity: 0.6; }
+  100% { transform: scale(1.08) translate(10px, 10px); opacity: 1; }
+}
+
+/* 4. Métricas Animadas (Counter) */
+.metric-card {
+  transition: transform var(--transition-base);
+}
+
+.metric-card:hover {
+  transform: translateY(-4px);
+}
+
+.metric-number {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  transition: color var(--transition-fast);
+}
+
+/* 5. Especialidades Quirúrgicas: Micro-animaciones en Cards */
+.specialty-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.specialty-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(13, 148, 136, 0.45);
+  box-shadow: 
+    0 16px 36px -10px rgba(10, 17, 40, 0.12),
+    0 0 25px rgba(13, 148, 136, 0.16);
+}
+
+.specialty-card:hover .specialty-icon-circle {
+  transform: scale(1.12) rotate(4deg);
+  background: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.35);
+}
+
+.specialty-icon-circle {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s ease,
+              color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+/* 6. Protocolo Stepper: Resplandor interactivo */
+.stepper-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.35s ease;
+}
+
+.stepper-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-cyan);
+  box-shadow: 0 14px 35px rgba(6, 182, 212, 0.22);
+}
+
+.stepper-card:hover .step-num {
+  text-shadow: 0 0 15px rgba(6, 182, 212, 0.7);
+}
+
+.stepper-card:hover .step-icon {
+  transform: scale(1.1) rotate(-6deg);
+  background: var(--color-cyan);
+  color: var(--color-navy);
+}
+
+.step-icon {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.3s ease,
+              color 0.3s ease;
+}
+
+/* 7. Calculadora: Bump al actualizar precio total */
+.total-amount.bump-anim {
+  animation: priceBump 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes priceBump {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.18); color: #22d3ee; }
+  100% { transform: scale(1); }
+}
+
+.species-btn {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.species-btn:active {
+  transform: scale(0.96);
+}
+
+.species-btn.active {
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.2);
+  transform: translateY(-1px);
+}
+
+/* 8. Instalaciones / Facility Cards */
+.facility-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.facility-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-cyan);
+  box-shadow: 
+    0 14px 32px -8px rgba(10, 17, 40, 0.1),
+    0 0 20px rgba(6, 182, 212, 0.15);
+}
+
+.facility-card:hover .facility-icon {
+  transform: scale(1.12);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-cyan) 100%);
+  color: var(--color-white);
+  box-shadow: 0 6px 16px rgba(13, 148, 136, 0.3);
+}
+
+.facility-icon {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Floating Actions Animados */
+.fab-whatsapp {
+  animation: pulse-fab-green 3s infinite;
+}
+
+@keyframes pulse-fab-green {
+  0%, 100% {
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+  }
+  50% {
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
   }
 }

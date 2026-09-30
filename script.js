@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaqAccordion();
   initModalHandling();
   initMobileNav();
+  initScrollAnimations();
+  initAnimatedCounters();
 });
 
 /* ==========================================================================
@@ -95,7 +97,12 @@ function initCostCalculator() {
     if (surgeryBasePriceEl) surgeryBasePriceEl.textContent = `$${basePrice}`;
     if (weightAdjPriceEl) weightAdjPriceEl.textContent = `$${weightAdjustment}`;
     if (examsPriceEl) examsPriceEl.textContent = `$${examsTotal}`;
-    if (totalAmountEl) totalAmountEl.textContent = `$${grandTotal}`;
+    if (totalAmountEl) {
+      totalAmountEl.textContent = `$${grandTotal}`;
+      totalAmountEl.classList.remove('bump-anim');
+      void totalAmountEl.offsetWidth; // Force reflow
+      totalAmountEl.classList.add('bump-anim');
+    }
 
     // Construir mensaje de WhatsApp
     const speciesLabel = currentSpecies === 'dog' ? 'Canino (Perro)' : 'Felino (Gato)';
@@ -258,6 +265,94 @@ function initMobileNav() {
       link.addEventListener('click', () => {
         navMenu.classList.remove('mobile-open');
       });
+    });
+  }
+}
+
+
+/* ==========================================================================
+   6. ANIMACIONES DE SCROLL REVEAL (INTERSECTION OBSERVER)
+   ========================================================================== */
+function initScrollAnimations() {
+  const animatedElements = document.querySelectorAll('.anim-reveal');
+  
+  if (!('IntersectionObserver' in window)) {
+    // Fallback para navegadores antiguos
+    animatedElements.forEach(el => el.classList.add('is-revealed'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  animatedElements.forEach(el => observer.observe(el));
+}
+
+/* ==========================================================================
+   7. CONTADOR DINÁMICO DE MÉTRICAS AL SCROLLEAR
+   ========================================================================== */
+function initAnimatedCounters() {
+  const metricsSection = document.querySelector('.metrics-banner');
+  const counterElements = document.querySelectorAll('[data-counter]');
+  if (!metricsSection || counterElements.length === 0) return;
+
+  let hasAnimated = false;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !hasAnimated) {
+        hasAnimated = true;
+        animateCounters();
+      }
+    });
+  }, { threshold: 0.25 });
+
+  observer.observe(metricsSection);
+
+  function animateCounters() {
+    counterElements.forEach(counterEl => {
+      const target = parseFloat(counterEl.dataset.counter);
+      const isDecimal = counterEl.dataset.decimals !== undefined;
+      const prefix = counterEl.dataset.prefix || '';
+      const suffix = counterEl.dataset.suffix || '';
+      const duration = 1800; // ms
+      const startTime = performance.now();
+
+      function updateNumber(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing easeOutExpo
+        const easeOut = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+        const currentVal = target * easeOut;
+
+        if (isDecimal) {
+          counterEl.textContent = `${prefix}${currentVal.toFixed(1)}${suffix}`;
+        } else {
+          counterEl.textContent = `${prefix}${Math.floor(currentVal).toLocaleString()}${suffix}`;
+        }
+
+        if (progress < 1) {
+          requestAnimationFrame(updateNumber);
+        } else {
+          if (isDecimal) {
+            counterEl.textContent = `${prefix}${target.toFixed(1)}${suffix}`;
+          } else {
+            counterEl.textContent = `${prefix}${target.toLocaleString()}${suffix}`;
+          }
+        }
+      }
+
+      requestAnimationFrame(updateNumber);
     });
   }
 }

@@ -98,23 +98,23 @@
       <!-- Navegación Principal -->
       <nav class="main-navigation" aria-label="Navegación del sitio">
         <a href="#especialidades" class="nav-link">Cirugías</a>
-        <a href="#protocolo" class="nav-link">Protocolo de Cesáreas</a>
-        <a href="#calculadora" class="nav-link">Cotizador Online</a>
+        <a href="#protocolo" class="nav-link">Cesáreas</a>
+        <a href="#calculadora" class="nav-link">Cotizador</a>
         <a href="#instalaciones" class="nav-link">Quirófano & UCI</a>
         <a href="#cuidados" class="nav-link">Guía Pre/Post</a>
-        <a href="#testimonios" class="nav-link">Casos Reales</a>
+        <a href="#testimonios" class="nav-link">Casos</a>
         <a href="#faq" class="nav-link">Preguntas</a>
       </nav>
 
       <!-- Acciones de Encabezado -->
       <div class="header-actions">
         <button type="button" class="btn-primary" data-open-modal id="btn-header-agendar">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-          Agendar Valoración
+          <svg class="btn-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <span>Agendar Cita</span>
         </button>
-        <a href="tel:+584127874483" class="btn-emergency" title="Llamar a Urgencias Quirúrgicas">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-          Urgencia 24h
+        <a href="tel:+584127874483" class="btn-emergency" title="Llamar a Urgencias Quirúrgicas 24h">
+          <span class="emergency-live-pulse" aria-hidden="true"></span>
+          <span>Urgencia 24h</span>
         </a>
         <button class="mobile-nav-toggle" aria-label="Abrir Menú Móvil">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -130,20 +130,20 @@
     <section class="hero-section" id="inicio">
       <div class="container hero-grid">
         <div class="hero-content">
-          <div class="hero-badge">
+          <div class="hero-badge anim-reveal">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
             Centro Quirúrgico Veterinario de Referencia en Caracas
           </div>
 
-          <h1 class="hero-title">
+          <h1 class="hero-title anim-reveal anim-delay-1">
             Especialistas en <span class="highlight-teal">Cesáreas y Cirugías</span> de Perros y Gatos
           </h1>
 
-          <p class="hero-description">
+          <p class="hero-description anim-reveal anim-delay-2">
             Brindamos la máxima seguridad anestésica, quirófano estéril de presión positiva, monitorización multiparámetro continua y una unidad de reanimación neonatal dedicada para proteger la vida de la madre y sus cachorros.
           </p>
 
-          <div class="hero-actions">
+          <div class="hero-actions anim-reveal anim-delay-3">
             <a href="#calculadora" class="btn-primary" id="btn-hero-cotizar">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><path d="M12 18V6"></path></svg>
               Calcular Presupuesto Quirúrgico
@@ -154,7 +154,7 @@
             </a>
           </div>
 
-          <div class="hero-guarantees">
+          <div class="hero-guarantees anim-reveal anim-delay-4">
             <div class="guarantee-item">
               <span class="guarantee-icon">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -177,7 +177,7 @@
         </div>
 
         <!-- Visual Hero Card -->
-        <div class="hero-visual-card">
+        <div class="hero-visual-card anim-reveal anim-scale anim-delay-2">
           <div class="main-hero-image-wrap">
             <img 
               src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=800&q=80" 
@@ -217,23 +217,23 @@
          ========================================================================== -->
     <section class="metrics-banner" aria-label="Estadísticas de la clínica">
       <div class="container metrics-grid">
-        <div class="metric-card">
-          <div class="metric-number">+3,500</div>
+        <div class="metric-card anim-reveal anim-delay-1">
+          <div class="metric-number" data-counter="3500" data-prefix="+" data-suffix="">+3,500</div>
           <div class="metric-label">Cirugías Exitosas</div>
           <div class="metric-sub">Perros y gatos recuperados</div>
         </div>
-        <div class="metric-card">
-          <div class="metric-number">99.4%</div>
+        <div class="metric-card anim-reveal anim-delay-2">
+          <div class="metric-number" data-counter="99.4" data-decimals="1" data-prefix="" data-suffix="%">99.4%</div>
           <div class="metric-label">Tasa de Éxito Neonatal</div>
           <div class="metric-sub">En cesáreas programadas</div>
         </div>
-        <div class="metric-card">
-          <div class="metric-number">24/7</div>
+        <div class="metric-card anim-reveal anim-delay-3">
+          <div class="metric-number" data-static="24/7">24/7</div>
           <div class="metric-label">Quirófano de Urgencias</div>
           <div class="metric-sub">Médicos y cirujanos de guardia</div>
         </div>
-        <div class="metric-card">
-          <div class="metric-number">15+</div>
+        <div class="metric-card anim-reveal anim-delay-4">
+          <div class="metric-number" data-counter="15" data-prefix="" data-suffix="+">15+</div>
           <div class="metric-label">Años de Especialidad</div>
           <div class="metric-sub">Obstetricia y tejidos blandos</div>
         </div>
@@ -245,7 +245,7 @@
          ========================================================================== -->
     <section class="section-pad" id="especialidades">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header anim-reveal">
           <span class="section-tag">Nuestras Especialidades</span>
           <h2 class="section-title">Procedimientos Quirúrgicos de Alta Complejidad</h2>
           <p class="section-description">
@@ -255,7 +255,7 @@
 
         <div class="specialties-grid">
           <!-- CARD DESTACADA: CESÁREAS Y OBSTETRICIA -->
-          <div class="specialty-card featured-card">
+          <div class="specialty-card featured-card anim-reveal anim-delay-1">
             <div class="specialty-image-wrap">
               <img 
                 src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=800&q=80" 
@@ -294,7 +294,7 @@
           </div>
 
           <!-- CARD 2: CIRUGÍA DE TEJIDOS BLANDOS -->
-          <div class="specialty-card">
+          <div class="specialty-card anim-reveal anim-delay-2">
             <div class="specialty-image-wrap">
               <img 
                 src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=800&q=80" 
@@ -333,7 +333,7 @@
           </div>
 
           <!-- CARD 3: TRAUMATOLOGÍA Y ORTOPEDIA -->
-          <div class="specialty-card">
+          <div class="specialty-card anim-reveal anim-delay-3">
             <div class="specialty-image-wrap">
               <img 
                 src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=800&q=80" 
@@ -372,7 +372,7 @@
           </div>
 
           <!-- CARD 4: CIRUGÍA ONCOLÓGICA Y RECONSTRUCTIVA -->
-          <div class="specialty-card">
+          <div class="specialty-card anim-reveal anim-delay-4">
             <div class="specialty-image-wrap">
               <img 
                 src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80" 
@@ -411,7 +411,7 @@
           </div>
 
           <!-- CARD 5: CIRUGÍA LAPAROSCÓPICA MÍNIMA INVASIÓN -->
-          <div class="specialty-card">
+          <div class="specialty-card anim-reveal anim-delay-5">
             <div class="specialty-image-wrap">
               <img 
                 src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=800&q=80" 
@@ -457,7 +457,7 @@
          ========================================================================== -->
     <section class="section-pad protocol-section" id="protocolo">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header anim-reveal">
           <span class="section-tag">Protocolo Quirúrgico de Precisión</span>
           <h2 class="section-title">El Flujo Seguro de una Cesárea en SURGIVET</h2>
           <p class="section-description">
@@ -467,7 +467,7 @@
 
         <div class="timeline-stepper">
           <!-- PASO 1 -->
-          <div class="stepper-card">
+          <div class="stepper-card anim-reveal anim-delay-1">
             <div class="stepper-header">
               <span class="step-num">01</span>
               <div class="step-icon">
@@ -491,7 +491,7 @@
           </div>
 
           <!-- PASO 2 -->
-          <div class="stepper-card">
+          <div class="stepper-card anim-reveal anim-delay-2">
             <div class="stepper-header">
               <span class="step-num">02</span>
               <div class="step-icon">
@@ -515,7 +515,7 @@
           </div>
 
           <!-- PASO 3 -->
-          <div class="stepper-card">
+          <div class="stepper-card anim-reveal anim-delay-3">
             <div class="stepper-header">
               <span class="step-num">03</span>
               <div class="step-icon">
@@ -539,7 +539,7 @@
           </div>
 
           <!-- PASO 4 -->
-          <div class="stepper-card">
+          <div class="stepper-card anim-reveal anim-delay-4">
             <div class="stepper-header">
               <span class="step-num">04</span>
               <div class="step-icon">
@@ -563,7 +563,7 @@
           </div>
 
           <!-- PASO 5 -->
-          <div class="stepper-card">
+          <div class="stepper-card anim-reveal anim-delay-4">
             <div class="stepper-header">
               <span class="step-num">05</span>
               <div class="step-icon">
@@ -587,7 +587,7 @@
           </div>
 
           <!-- PASO 6 -->
-          <div class="stepper-card">
+          <div class="stepper-card anim-reveal anim-delay-4">
             <div class="stepper-header">
               <span class="step-num">06</span>
               <div class="step-icon">
@@ -618,7 +618,7 @@
          ========================================================================== -->
     <section class="section-pad calculator-section" id="calculadora">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header anim-reveal">
           <span class="section-tag">Transparencia Médica</span>
           <h2 class="section-title">Calculadora de Presupuesto Quirúrgico</h2>
           <p class="section-description">
@@ -626,7 +626,7 @@
           </p>
         </div>
 
-        <div class="calculator-container">
+        <div class="calculator-container anim-reveal anim-scale">
           <!-- FORMULARIO CALCULADORA -->
           <div class="calc-form-wrap">
             <h3>1. Datos de tu Mascota y Cirugía</h3>
@@ -775,7 +775,7 @@
          ========================================================================== -->
     <section class="section-pad" id="instalaciones">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header anim-reveal">
           <span class="section-tag">Estándares Hospitalarios</span>
           <h2 class="section-title">Infraestructura y Tecnología Quirúrgica</h2>
           <p class="section-description">
@@ -785,7 +785,7 @@
 
         <div class="facility-grid">
           <!-- CARD 1 -->
-          <div class="facility-card">
+          <div class="facility-card anim-reveal anim-delay-1">
             <div class="facility-icon">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
             </div>
@@ -796,7 +796,7 @@
           </div>
 
           <!-- CARD 2 -->
-          <div class="facility-card">
+          <div class="facility-card anim-reveal anim-delay-2">
             <div class="facility-icon">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
             </div>
@@ -807,7 +807,7 @@
           </div>
 
           <!-- CARD 3 -->
-          <div class="facility-card">
+          <div class="facility-card anim-reveal anim-delay-3">
             <div class="facility-icon">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
             </div>
@@ -818,7 +818,7 @@
           </div>
 
           <!-- CARD 4 -->
-          <div class="facility-card">
+          <div class="facility-card anim-reveal anim-delay-4">
             <div class="facility-icon">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
             </div>
@@ -829,7 +829,7 @@
           </div>
 
           <!-- CARD 5 -->
-          <div class="facility-card">
+          <div class="facility-card anim-reveal anim-delay-4">
             <div class="facility-icon">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
             </div>
@@ -840,7 +840,7 @@
           </div>
 
           <!-- CARD 6 -->
-          <div class="facility-card">
+          <div class="facility-card anim-reveal anim-delay-4">
             <div class="facility-icon">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
             </div>
@@ -858,7 +858,7 @@
          ========================================================================== -->
     <section class="section-pad care-guide-section" id="cuidados">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header anim-reveal">
           <span class="section-tag">Educación para Familias</span>
           <h2 class="section-title">Guía de Cuidados Quirúrgicos</h2>
           <p class="section-description">
@@ -867,7 +867,7 @@
         </div>
 
         <!-- TABS NAV -->
-        <div class="care-tabs-nav">
+        <div class="care-tabs-nav anim-reveal">
           <button type="button" class="care-tab-btn active" data-tab="tab-preop">
             📋 Antes de la Cirugía (Pre-Operatorio)
           </button>
@@ -878,7 +878,7 @@
 
         <!-- TAB 1: PRE-OP -->
         <div class="care-tab-content active" id="tab-preop">
-          <div class="care-card">
+          <div class="care-card anim-reveal anim-delay-1">
             <div class="care-card-header">
               <div class="care-card-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
@@ -902,7 +902,7 @@
             </ul>
           </div>
 
-          <div class="care-card">
+          <div class="care-card anim-reveal anim-delay-2">
             <div class="care-card-header">
               <div class="care-card-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
@@ -926,7 +926,7 @@
             </ul>
           </div>
 
-          <div class="care-card">
+          <div class="care-card anim-reveal anim-delay-3">
             <div class="care-card-header">
               <div class="care-card-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
@@ -1033,7 +1033,7 @@
          ========================================================================== -->
     <section class="section-pad" id="testimonios">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header anim-reveal">
           <span class="section-tag">Historias que Salvan Vidas</span>
           <h2 class="section-title">Casos Reales y Familias Felices</h2>
           <p class="section-description">
@@ -1043,7 +1043,7 @@
 
         <div class="cases-grid">
           <!-- CASO 1: CESÁREA BULLDOG -->
-          <div class="case-card">
+          <div class="case-card anim-reveal anim-delay-1">
             <div class="case-img-wrap">
               <img 
                 src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=800&q=80" 
@@ -1067,7 +1067,7 @@
           </div>
 
           <!-- CASO 2: GATITO OBSTRUCCIÓN -->
-          <div class="case-card">
+          <div class="case-card anim-reveal anim-delay-2">
             <div class="case-img-wrap">
               <img 
                 src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80" 
@@ -1091,7 +1091,7 @@
           </div>
 
           <!-- CASO 3: TORSIÓN GÁSTRICA -->
-          <div class="case-card">
+          <div class="case-card anim-reveal anim-delay-3">
             <div class="case-img-wrap">
               <img 
                 src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=800&q=80" 
@@ -1122,7 +1122,7 @@
          ========================================================================== -->
     <section class="section-pad" id="faq">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header anim-reveal">
           <span class="section-tag">Resolviendo tus Dudas</span>
           <h2 class="section-title">Preguntas Frecuentes sobre Cirugías y Cesáreas</h2>
           <p class="section-description">
@@ -1132,7 +1132,7 @@
 
         <div class="faq-wrap">
           <!-- FAQ 1 -->
-          <div class="faq-item active">
+          <div class="faq-item anim-reveal anim-delay-3 anim-reveal anim-delay-3 anim-reveal anim-delay-3 anim-reveal anim-delay-2 anim-reveal anim-delay-1 active">
             <button class="faq-button" aria-expanded="true">
               <span>¿Por qué las cesáreas en razas braquicéfalas (Bulldogs, Pugs) deben planificarse con anticipación?</span>
               <svg class="faq-icon-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -1193,7 +1193,7 @@
          BANNER DE LLAMADA A LA ACCIÓN URGENCIAS 24/7
          ========================================================================== -->
     <section class="container" style="margin-bottom: 5.5rem;">
-      <div class="emergency-cta-banner">
+      <div class="emergency-cta-banner anim-reveal anim-scale">
         <div class="emergency-cta-text">
           <h3>¿Tu mascota tiene una urgencia quirúrgica o está en labor de parto detenida?</h3>
           <p>
