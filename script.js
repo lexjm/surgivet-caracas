@@ -248,22 +248,83 @@ function initModalHandling() {
 }
 
 /* ==========================================================================
-   5. MENÚ MÓVIL
+   5. CONTROL DE NAVEGACIÓN MÓVIL Y DRAWER PARA IPHONE
    ========================================================================== */
 function initMobileNav() {
-  const toggleBtn = document.querySelector('.mobile-nav-toggle');
-  const navMenu = document.querySelector('.main-navigation');
+  const toggleBtn = document.getElementById('mobile-nav-toggle') || document.querySelector('.mobile-nav-toggle');
+  const drawerPanel = document.getElementById('mobile-drawer-panel');
+  const drawerBackdrop = document.getElementById('mobile-drawer-backdrop');
+  const closeBtn = document.getElementById('mobile-drawer-close');
+  const drawerLinks = document.querySelectorAll('.drawer-nav-item');
+  const drawerAgendarBtn = document.getElementById('btn-drawer-agendar');
 
-  if (toggleBtn && navMenu) {
-    toggleBtn.addEventListener('click', () => {
-      navMenu.classList.toggle('mobile-open');
+  function openDrawer() {
+    document.body.classList.add('mobile-drawer-open');
+    if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'true');
+    if (drawerPanel) drawerPanel.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeDrawer() {
+    document.body.classList.remove('mobile-drawer-open');
+    if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
+    if (drawerPanel) drawerPanel.setAttribute('aria-hidden', 'true');
+  }
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (document.body.classList.contains('mobile-drawer-open')) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
     });
+  }
 
-    // Cerrar al clickear cualquier link
-    const navLinks = navMenu.querySelectorAll('a');
-    navLinks.forEach(link => {
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeDrawer();
+    });
+  }
+
+  if (drawerBackdrop) {
+    drawerBackdrop.addEventListener('click', closeDrawer);
+  }
+
+  // Cerrar al pulsar cualquier enlace del menú móvil y hacer scroll suave
+  drawerLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeDrawer();
+    });
+  });
+
+  // Botón agendar dentro del drawer: cierra el drawer y abre el modal
+  if (drawerAgendarBtn) {
+    drawerAgendarBtn.addEventListener('click', () => {
+      closeDrawer();
+      const modal = document.getElementById('booking-modal');
+      if (modal) {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  }
+
+  // Cerrar con tecla Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.body.classList.contains('mobile-drawer-open')) {
+      closeDrawer();
+    }
+  });
+
+  // Soporte de compatibilidad con barra horizontal si existiera
+  const legacyNavMenu = document.querySelector('.main-navigation');
+  if (legacyNavMenu) {
+    const legacyLinks = legacyNavMenu.querySelectorAll('a');
+    legacyLinks.forEach(link => {
       link.addEventListener('click', () => {
-        navMenu.classList.remove('mobile-open');
+        legacyNavMenu.classList.remove('mobile-open');
       });
     });
   }

@@ -2,7 +2,11 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#ffffff">
   <title>SURGIVET Caracas | Centro Especializado en Cesáreas y Cirugía Veterinaria de Perros y Gatos</title>
   
   <!-- SEO y Meta Etiquetas -->
@@ -30,7 +34,7 @@
     "name": "SURGIVET Caracas - Centro Quirúrgico Veterinario",
     "image": "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=1200&q=80",
     "description": "Centro de referencia quirúrgica y obstetricia veterinaria especializada en cesáreas y cirugías complejas de perros y gatos en Caracas.",
-    "telephone": "+507-6000-8387",
+    "telephone": "+58-412-787-4483",
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
@@ -117,12 +121,151 @@
           <span class="emergency-live-pulse" aria-hidden="true"></span>
           <span>Urgencia 24h</span>
         </a>
-        <button class="mobile-nav-toggle" aria-label="Abrir Menú Móvil">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Abrir Menú Móvil" aria-expanded="false" aria-controls="mobile-drawer-panel">
+          <svg class="hamburger-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="20" y2="17"></line>
+          </svg>
         </button>
       </div>
     </div>
   </header>
+
+  <!-- ==========================================================================
+       DRAWER DE NAVEGACIÓN MÓVIL OPTIMIZADO PARA IPHONE (iOS DESIGN SYSTEM)
+       ========================================================================== -->
+  <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop" aria-hidden="true"></div>
+  
+  <aside class="mobile-drawer-panel" id="mobile-drawer-panel" aria-label="Menú de Navegación Móvil" aria-hidden="true">
+    <div class="mobile-drawer-header">
+      <div class="drawer-brand">
+        <div class="drawer-logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M2 12h20M7 7l10 10M17 7L7 17"></path>
+          </svg>
+        </div>
+        <div class="drawer-brand-text">
+          <span class="drawer-brand-name">SURGIVET <strong>CARACAS</strong></span>
+          <span class="drawer-brand-sub">Quirúrgico & Obstetricia</span>
+        </div>
+      </div>
+      <button type="button" class="drawer-close-btn" id="mobile-drawer-close" aria-label="Cerrar menú">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Píldora de estado de quirófano en tiempo real -->
+    <div class="drawer-status-pill">
+      <span class="drawer-status-dot" aria-hidden="true"></span>
+      <span>Quirófano y Guardia Activos 24/7 en Las Mercedes</span>
+    </div>
+
+    <!-- Menú deslizable con diseño estilo tabla de ajustes iOS -->
+    <div class="mobile-drawer-body">
+      <div class="drawer-section-label">SECCIONES QUIRÚRGICAS</div>
+      <nav class="drawer-nav-list" role="navigation">
+        <a href="#especialidades" class="drawer-nav-item">
+          <span class="drawer-item-icon icon-teal">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20M7 7l10 10M17 7L7 17"></path></svg>
+          </span>
+          <span class="drawer-item-title">Cirugías de Alta Complejidad</span>
+          <span class="drawer-item-arrow">›</span>
+        </a>
+
+        <a href="#protocolo" class="drawer-nav-item">
+          <span class="drawer-item-icon icon-cyan">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </span>
+          <span class="drawer-item-title">Protocolo de Cesáreas & Neonatal</span>
+          <span class="drawer-item-arrow">›</span>
+        </a>
+
+        <a href="#doctor" class="drawer-nav-item">
+          <span class="drawer-item-icon icon-blue">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          </span>
+          <span class="drawer-item-title">Dr. Adolfo Hernández (Cirujano)</span>
+          <span class="drawer-item-arrow">›</span>
+        </a>
+
+        <a href="#calculadora" class="drawer-nav-item">
+          <span class="drawer-item-icon icon-emerald">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><path d="M12 18V6"></path></svg>
+          </span>
+          <span class="drawer-item-title">Cotizador Quirúrgico Online</span>
+          <span class="drawer-item-arrow">›</span>
+        </a>
+
+        <a href="#instalaciones" class="drawer-nav-item">
+          <span class="drawer-item-icon icon-purple">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+          </span>
+          <span class="drawer-item-title">Quirófano Estéril & UCI</span>
+          <span class="drawer-item-arrow">›</span>
+        </a>
+
+        <a href="#cuidados" class="drawer-nav-item">
+          <span class="drawer-item-icon icon-amber">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          </span>
+          <span class="drawer-item-title">Guía Pre y Postoperatoria</span>
+          <span class="drawer-item-arrow">›</span>
+        </a>
+
+        <a href="#testimonios" class="drawer-nav-item">
+          <span class="drawer-item-icon icon-rose">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </span>
+          <span class="drawer-item-title">Casos Clínicos & Testimonios</span>
+          <span class="drawer-item-arrow">›</span>
+        </a>
+
+        <a href="#faq" class="drawer-nav-item">
+          <span class="drawer-item-icon icon-slate">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          </span>
+          <span class="drawer-item-title">Preguntas Frecuentes</span>
+          <span class="drawer-item-arrow">›</span>
+        </a>
+      </nav>
+
+      <!-- Botones de Acción Táctil Optimizados para Pulgar -->
+      <div class="drawer-actions">
+        <div class="drawer-section-label">CONTACTO RÁPIDO & URGENCIAS</div>
+        
+        <a href="tel:+584127874483" class="btn-emergency drawer-action-btn" title="Llamar Urgencias 24h">
+          <span class="emergency-live-pulse" aria-hidden="true"></span>
+          <span>Llamar Urgencias (+58 412-787-4483)</span>
+        </a>
+
+        <a href="https://wa.me/584127874483?text=Hola%20SURGIVET%20Caracas,%20tengo%20una%20emergencia%20quirúrgica%20con%20mi%20mascota" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-quote drawer-action-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.983.538 1.838.82 2.791.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.745 0-3.385-.45-4.821-1.238l-5.179 1.353 1.378-5.034c-.879-1.488-1.378-3.216-1.378-5.081 0-5.514 4.486-10 10-10s10 4.486 10 10z"/></svg>
+          <span>WhatsApp Guardia Médica</span>
+        </a>
+
+        <button type="button" class="btn-primary drawer-action-btn" data-open-modal id="btn-drawer-agendar">
+          <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <span>Agendar Valoración Quirúrgica</span>
+        </button>
+      </div>
+
+      <!-- Footer Informativo del Drawer -->
+      <div class="drawer-footer-info">
+        <div class="drawer-info-line">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span>Av. Principal de Las Mercedes, Caracas</span>
+        </div>
+        <div class="drawer-info-line">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Quirófano Activo 24h • RIF J-40982315-6</span>
+        </div>
+      </div>
+    </div>
+  </aside>
 
   <main id="main-content">
     <!-- ==========================================================================
@@ -1325,7 +1468,7 @@
             </div>
             <div class="logo-text">
               <div class="brand-title" style="color: #fff;">
-                SURGIVET <span style="color: #14b8a6;">PANAMÁ</span>
+                SURGIVET <span style="color: #14b8a6;">CARACAS</span>
               </div>
               <span class="brand-subtitle" style="color: #94a3b8;">Centro Quirúrgico Veterinario</span>
             </div>
@@ -1397,7 +1540,7 @@
        ========================================================================== -->
   <div class="floating-actions-container" aria-label="Acciones Rápidas">
     <!-- WhatsApp Directo -->
-    <a href="https://wa.me/584127874483?text=Hola%20SURGIVET%20Panamá,%20quisiera%20consultar%20sobre%20una%20cirugía%20o%20cesárea" target="_blank" rel="noopener noreferrer" class="fab-btn fab-whatsapp" aria-label="Escribir por WhatsApp">
+    <a href="https://wa.me/584127874483?text=Hola%20SURGIVET%20Caracas,%20quisiera%20consultar%20sobre%20una%20cirugía%20o%20cesárea" target="_blank" rel="noopener noreferrer" class="fab-btn fab-whatsapp" aria-label="Escribir por WhatsApp">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
         <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
       </svg>

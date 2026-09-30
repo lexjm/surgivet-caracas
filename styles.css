@@ -537,13 +537,320 @@ button {
   transform: translateY(1px) scale(0.98);
 }
 
-/* Menú Móvil */
+/* Menú Móvil Toggle */
 .mobile-nav-toggle {
   display: none;
-  background: transparent;
+  background: #ffffff;
+  border: 1px solid var(--color-slate-200);
   color: var(--color-navy);
-  font-size: 1.5rem;
-  padding: 0.5rem;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(10, 17, 40, 0.05);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-tap-highlight-color: transparent;
+  padding: 0;
+}
+
+.mobile-nav-toggle:active {
+  background: var(--color-slate-100);
+  transform: scale(0.93);
+}
+
+.mobile-nav-toggle svg {
+  display: block;
+}
+
+/* ==========================================================================
+   DRAWER DE NAVEGACIÓN MÓVIL OPTIMIZADO PARA IPHONE (iOS DESIGN SYSTEM)
+   ========================================================================== */
+
+/* Bloqueo de scroll cuando el drawer está abierto */
+body.mobile-drawer-open {
+  overflow: hidden !important;
+  touch-action: none;
+  -webkit-overflow-scrolling: auto;
+}
+
+/* Backdrop difuminado estilo iOS */
+.mobile-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 9998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.mobile-drawer-open .mobile-drawer-backdrop {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Panel lateral deslizable (Right slide-over con safe areas de iPhone) */
+.mobile-drawer-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(88vw, 380px);
+  height: 100vh;
+  height: 100dvh;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(25px) saturate(190%);
+  -webkit-backdrop-filter: blur(25px) saturate(190%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -10px 0 40px rgba(10, 17, 40, 0.22);
+  border-left: 1px solid rgba(226, 232, 240, 0.85);
+  transform: translateX(105%);
+  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  will-change: transform;
+}
+
+body.mobile-drawer-open .mobile-drawer-panel {
+  transform: translateX(0);
+}
+
+/* Cabecera del Drawer */
+.mobile-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: max(1.15rem, env(safe-area-inset-top)) 1.25rem 1rem;
+  border-bottom: 1px solid var(--color-slate-100);
+  background: #ffffff;
+  flex-shrink: 0;
+}
+
+.drawer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.drawer-logo-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  box-shadow: 0 4px 10px rgba(13, 148, 136, 0.25);
+  flex-shrink: 0;
+}
+
+.drawer-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-brand-name {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.drawer-brand-name strong {
+  color: var(--color-primary);
+}
+
+.drawer-brand-sub {
+  font-size: 0.72rem;
+  color: var(--color-slate-500);
+  font-weight: 500;
+}
+
+/* Botón de Cierre "✕" con hit target de 44x44px */
+.drawer-close-btn {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 50%;
+  background: var(--color-slate-100);
+  border: 1px solid var(--color-slate-200);
+  color: var(--color-slate-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.drawer-close-btn:active {
+  background: var(--color-slate-200);
+  transform: scale(0.92);
+}
+
+/* Píldora de estado Urgencias 24h */
+.drawer-status-pill {
+  margin: 0.75rem 1.25rem 0.25rem;
+  padding: 0.55rem 0.85rem;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.22);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #dc2626;
+  flex-shrink: 0;
+}
+
+.drawer-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25);
+  animation: pulseBeacon 1.8s infinite;
+}
+
+/* Cuerpo con scroll elástico nativo de iOS */
+.mobile-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  padding: 0.75rem 1.25rem max(2rem, env(safe-area-inset-bottom));
+}
+
+.drawer-section-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--color-slate-400);
+  text-transform: uppercase;
+  margin: 1rem 0 0.5rem 0.4rem;
+}
+
+/* Lista de navegación agrupada estilo iOS Table View */
+.drawer-nav-list {
+  background: #f8fafc;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.drawer-nav-item {
+  display: flex;
+  align-items: center;
+  padding: 0.85rem 1rem;
+  gap: 0.85rem;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  transition: background-color 0.15s ease, transform 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 48px;
+}
+
+.drawer-nav-item:last-child {
+  border-bottom: none;
+}
+
+.drawer-nav-item:active {
+  background-color: rgba(13, 148, 136, 0.1);
+  transform: scale(0.99);
+}
+
+/* Iconos temáticos de cada opción */
+.drawer-item-icon {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.drawer-item-icon.icon-teal { background: rgba(13, 148, 136, 0.12); color: #0d9488; }
+.drawer-item-icon.icon-cyan { background: rgba(8, 145, 178, 0.12); color: #0891b2; }
+.drawer-item-icon.icon-blue { background: rgba(37, 99, 235, 0.12); color: #2563eb; }
+.drawer-item-icon.icon-emerald { background: rgba(16, 185, 129, 0.12); color: #059669; }
+.drawer-item-icon.icon-purple { background: rgba(147, 51, 234, 0.12); color: #7c3aed; }
+.drawer-item-icon.icon-amber { background: rgba(245, 158, 11, 0.14); color: #d97706; }
+.drawer-item-icon.icon-rose { background: rgba(244, 63, 94, 0.12); color: #e11d48; }
+.drawer-item-icon.icon-slate { background: rgba(100, 116, 139, 0.12); color: #475569; }
+
+.drawer-item-title {
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-slate-800);
+}
+
+.drawer-item-arrow {
+  color: var(--color-slate-400);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* Botones de acción directa en el drawer */
+.drawer-actions {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.drawer-action-btn {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 14px;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Footer de información médica en el drawer */
+.drawer-footer-info {
+  margin-top: 1.25rem;
+  padding: 0.9rem;
+  background: var(--color-slate-50);
+  border-radius: 12px;
+  border: 1px solid var(--color-slate-200);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.drawer-info-line {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.78rem;
+  color: var(--color-slate-600);
+  font-weight: 500;
+}
+
+.drawer-info-line svg {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+/* Input auto-zoom fix para iOS Safari (Evita zoom automático al pulsar inputs en iPhone) */
+input, select, textarea {
+  font-size: 16px !important;
 }
 
 /* ==========================================================================
@@ -1964,36 +2271,80 @@ button {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .main-navigation {
-    display: none;
-    position: absolute;
-    top: 80px;
-    left: 0;
-    right: 0;
-    background: var(--color-white);
-    flex-direction: column;
-    padding: 2rem;
-    box-shadow: var(--shadow-lg);
-    border-bottom: 1px solid var(--color-slate-200);
-  }
-  
-  .main-navigation.mobile-open {
-    display: flex;
+    display: none !important;
   }
   
   .mobile-nav-toggle {
-    display: block;
+    display: flex;
   }
-  
+
   .header-actions .btn-primary {
     display: none;
   }
-  
-  .hero-title {
-    font-size: 2.35rem;
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    padding-top: max(0.4rem, env(safe-area-inset-top));
   }
-  
+
+  .header-content {
+    padding: 0.55rem 1rem;
+  }
+
+  .brand-logo {
+    gap: 0.6rem;
+  }
+
+  .logo-symbol {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+  }
+
+  .brand-title {
+    font-size: 1.15rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.68rem;
+  }
+
+  .emergency-topbar-content {
+    flex-direction: column;
+    gap: 0.35rem;
+    text-align: center;
+    padding: 0.4rem 1rem;
+  }
+
+  .emergency-links {
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .hero-title {
+    font-size: 2.15rem;
+    line-height: 1.15;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-emergency {
+    width: 100%;
+    justify-content: center;
+  }
+
   .specialties-grid {
     grid-template-columns: 1fr;
   }
@@ -2025,6 +2376,103 @@ button {
   
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .floating-actions-container {
+    bottom: max(1.25rem, calc(env(safe-area-inset-bottom) + 0.75rem));
+    right: max(1rem, env(safe-area-inset-right));
+  }
+}
+
+/* Optimización específica para pantallas de iPhone (SE, 12 mini, 13 mini, 14, 15, 16) */
+@media (max-width: 480px) {
+  .brand-title {
+    font-size: 1.02rem;
+  }
+
+  .brand-badge {
+    display: none;
+  }
+
+  .brand-subtitle {
+    font-size: 0.64rem;
+  }
+
+  .header-actions {
+    gap: 0.45rem;
+  }
+
+  .header-actions .btn-emergency {
+    padding: 0.5rem 0.65rem;
+    font-size: 0.75rem;
+    border-radius: 10px;
+  }
+
+  .header-actions .btn-emergency span:not(.emergency-live-pulse) {
+    font-size: 0.75rem;
+  }
+
+  .mobile-nav-toggle {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+
+  .hero-section {
+    padding: 2.5rem 0 2rem;
+  }
+
+  .hero-title {
+    font-size: 1.85rem;
+  }
+
+  .cost-calc-container {
+    padding: 1.25rem;
+    border-radius: 18px;
+  }
+
+  .calculator-card {
+    padding: 1.25rem;
+  }
+
+  .weight-chips {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .weight-chip {
+    padding: 0.6rem 0.4rem;
+    font-size: 0.78rem;
+  }
+
+  .calc-summary-box {
+    padding: 1rem;
+  }
+
+  .modal-box {
+    padding: 1.5rem 1.15rem;
+    border-radius: 20px;
+    margin: 1rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .logo-symbol {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+  }
+
+  .brand-title {
+    font-size: 0.94rem;
+  }
+
+  .header-actions .btn-emergency {
+    padding: 0.45rem 0.55rem;
+  }
+  
+  .mobile-drawer-panel {
+    width: 92vw;
   }
 }
 
