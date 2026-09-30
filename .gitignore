@@ -1,0 +1,16 @@
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Logs y entornos
+*.log
+.env
+.env.local
+
+# Node (si se añade en el futuro)
+node_modules/
+package-lock.json
+
+# IDEs
+.vscode/
+.idea/

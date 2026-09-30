@@ -1,0 +1,20 @@
+{
+  "name": "surgivet-caracas",
+  "version": "1.0.0",
+  "description": "Sitio web para clínica veterinaria especializada en cesáreas, obstetricia neonatal y cirugías complejas de perros y gatos en Caracas, Venezuela.",
+  "scripts": {
+    "start": "python3 -m http.server 3000",
+    "dev": "python3 -m http.server 3000"
+  },
+  "keywords": [
+    "veterinaria",
+    "cirugia-veterinaria",
+    "cesareas-perros-gatos",
+    "obstetricia-veterinaria",
+    "caracas",
+    "venezuela",
+    "emergencias-24-7"
+  ],
+  "author": "TKS Technology",
+  "license": "MIT"
+}
