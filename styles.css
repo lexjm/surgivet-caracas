@@ -1474,15 +1474,23 @@ input, select, textarea {
 
 .form-select, .form-input {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   padding: 0.85rem 1.1rem;
   border: 1.5px solid var(--color-slate-200);
   border-radius: var(--radius-md);
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 16px; /* 16px previene auto-zoom molesto en iOS Safari */
   color: var(--color-slate-800);
   background-color: var(--color-slate-50);
   outline: none;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-select {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .form-select:focus, .form-input:focus {
@@ -2555,6 +2563,175 @@ input, select, textarea {
     font-size: 0.68rem;
   }
 
+  
+  /* Adaptación 100% fluida del Cotizador Quirúrgico en Móviles */
+  .calculator-container {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1.25rem 1rem !important;
+    border-radius: 20px !important;
+    gap: 1.5rem !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 4px 20px rgba(10, 17, 40, 0.08) !important;
+  }
+
+  .calc-form-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .calc-form-wrap h3 {
+    font-size: 1.2rem !important;
+    margin-bottom: 0.35rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .calc-form-wrap p {
+    font-size: 0.86rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .species-selector {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.65rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .species-btn {
+    padding: 0.75rem 0.5rem !important;
+    font-size: 0.88rem !important;
+    border-radius: 12px !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+  }
+
+  .form-select {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 16px !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+  }
+
+  .weight-chips {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .weight-chip-label {
+    padding: 0.65rem 0.35rem !important;
+    font-size: 0.82rem !important;
+    border-radius: 12px !important;
+    min-height: 44px !important;
+    box-sizing: border-box !important;
+  }
+
+  .checkbox-group {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    gap: 0.55rem !important;
+  }
+
+  .checkbox-label {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0.65rem 0.75rem !important;
+    font-size: 0.82rem !important;
+    border-radius: 12px !important;
+    line-height: 1.35 !important;
+  }
+
+  .checkbox-label input {
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    margin-top: 0.15rem !important;
+  }
+
+  /* Tarjeta de Resumen (Derecha en desktop, Abajo completa en móvil) */
+  .calc-summary-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding: 1.5rem 1.15rem !important;
+    border-radius: 18px !important;
+    box-sizing: border-box !important;
+  }
+
+  .summary-header {
+    padding-bottom: 0.85rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .summary-header h4 {
+    font-size: 1.2rem !important;
+    color: #ffffff !important;
+  }
+
+  .summary-header p {
+    font-size: 0.82rem !important;
+  }
+
+  .summary-list {
+    gap: 0.65rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .summary-row {
+    font-size: 0.85rem !important;
+  }
+
+  .summary-row.total-row {
+    padding-top: 1rem !important;
+    margin-top: 0.35rem !important;
+  }
+
+  .summary-row.total-row .total-label {
+    font-size: 1.05rem !important;
+  }
+
+  .summary-row.total-row .total-amount {
+    font-size: 2.15rem !important;
+  }
+
+  .summary-inclusions {
+    padding: 0.85rem !important;
+    margin-bottom: 1.25rem !important;
+    border-radius: 12px !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+  }
+
+  .inclusions-title {
+    font-size: 0.78rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .inclusions-list li {
+    font-size: 0.78rem !important;
+    line-height: 1.35 !important;
+    gap: 0.45rem !important;
+  }
+
+  .btn-whatsapp-quote {
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 0.85rem 1rem !important;
+    font-size: 0.92rem !important;
+    border-radius: 14px !important;
+    box-sizing: border-box !important;
+  }
+
   /* 6. Grillas de Especialidades, Quirófano y Testimonios */
   .specialties-grid {
     grid-template-columns: 1fr;
@@ -2643,14 +2820,7 @@ input, select, textarea {
     font-size: 1.78rem;
   }
 
-  .cost-calc-container {
-    padding: 1.15rem;
-    border-radius: 18px;
-  }
-
-  .calculator-card {
-    padding: 1.15rem;
-  }
+  
 
   .weight-chips {
     grid-template-columns: 1fr 1fr;
@@ -2662,10 +2832,7 @@ input, select, textarea {
     font-size: 0.78rem;
   }
 
-  .calc-summary-box {
-    padding: 1rem;
-  }
-
+  
   .modal-box {
     padding: 1.5rem 1.15rem;
     border-radius: 20px;
